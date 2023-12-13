@@ -59,11 +59,7 @@ for i,indx in enumerate(range(1,17)):
 
 ########################  PC-2 ######
 # print(des.key_PBox)
-New_permuted_keys=[]
-# print(permuted_keys[0])
-# print(''.join([ permuted_keys[0][i-1] for i in des.key_PBox]))
-for pk in permuted_keys:
-    New_permuted_keys.append(''.join([pk[i-1] for i in des.key_PBox]))
+New_permuted_keys=[''.join([key[i-1] for i in des.key_PBox]) for key in permuted_keys]
 
 # print(New_permuted_keys)
 # print(plain)
@@ -72,21 +68,10 @@ plain_binary=''.join([hexify[i] for i in plain])
 
 ########################  PC-2 ######
 IPed_message=''.join([plain_binary[i-1] for i in des.IP])
-# print(IPed_message)
-import numpy as np
 
 def bin_operation(str_1,str_2):
+    return str(bin(int(str_1,2) ^ int(str_2,2))[2:])
     
-    f=np.array(list(map(lambda i:i[0]!=i[1],zip(str_1,str_2))))*1
-    res=[]
-    for i in f:
-        if i:
-            res.append('1')
-        else:
-            res.append('0')
-    return ''.join(res)
-
-
 
 L,R=[],[]
 L.append(IPed_message[:32])
@@ -125,14 +110,14 @@ def f(right,k):
 
 
 
-for counter,key in enumerate(New_permuted_keys):    
+for key in New_permuted_keys:    
     L.append(R[-1])
     R.append(bin_operation(L[-2],f(R[-1],key)))    
-    # print(counter,' ',L[-1],R[-1])
+
 
 # reversed 
 Cipher=R[-1]+L[-1]
-
+# Last Permutation
 Cipher=''.join([Cipher[i-1] for i in des.FP])
 print(hex(int(Cipher, 2))[2:])
 
