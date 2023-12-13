@@ -1,9 +1,15 @@
 # cryptography_adventures
-## Different scripts for cryptographic implementains
+## Different scripts for cryptographic implementation
 
-Implementing DES algorithm as explained in https://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm
+Used des_tools from https://github.com/dkushagra/DES-Python to access fixed s-box and permutation constants
+
+Implementing DES algorithm 
 
 plain='0123456789ABCDEF'
+
 key='133457799BBCDFF1'
 
 cipher='85E813540F0AB405'
+
+
+### Though its aimed I will try to optimize it by applying modifications
