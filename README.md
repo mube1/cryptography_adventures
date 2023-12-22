@@ -1,7 +1,7 @@
 # cryptography_adventures
 ## Different scripts for cryptographic implementation
 
-Used des_tools from https://github.com/dkushagra/DES-Python to access fixed s-box and permutation constants
+Used  [des_tools such as s_box and IP ](https://github.com/dkushagra/DES-Python ).
 
 Implementing DES algorithm 
 
