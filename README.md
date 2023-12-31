@@ -13,3 +13,5 @@ cipher='85E813540F0AB405'
 
 
 ### Though its aimed I will try to optimize it by applying modifications
+
+Frievald's algorithm added
